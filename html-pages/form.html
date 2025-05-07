@@ -10,15 +10,17 @@
         rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
         crossorigin="anonymous">
-        <link rel="stylesheet" href="./form.css">
+        <link rel="stylesheet" href="../css-pages/form.css">
         <!-- Flatpickr CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 </head>
-<body class="p-4">
+<body>
 
+   <div id="navbar-container"></div>
 
-  <form class="container needs-validation" novalidate>
+  
+   <form class="container needs-validation" novalidate>
     <h1>Student Form</h1>
     <div class="input-group">
      
@@ -71,7 +73,7 @@
     </div>
 
 
-    <div class="mb-3">
+    <div>
       <label class="form-label d-block">Select at least 2 subjects:</label>
       <div class="form-check form-check-inline">
         <input class="form-check-input subject-checkbox" type="checkbox" id="english" value="English">
@@ -89,7 +91,15 @@
         Please select at least two subjects.
       </div>
     </div>
+   <div>
+    <select class="form-select" aria-label="Default select example" id="state-select" required>
+      <option selected value="">Choose a State</option>
     
+    </select>
+    <div class="invalid-feedback">
+      Please select a state.
+    </div>
+   </div>
     <div class="input-group" id="image-div">
       <span for="formFile" class="input-group-text"accept="image/*">Add your Image</span>
       <input class="form-control" type="file" id="input-image" onchange="showImage(event)">
@@ -117,11 +127,7 @@
           integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1DhO6Uv4lVV2F4GzF6zQ5P3pZ1a0RYa3jHVPpl3KjI1" 
           crossorigin="anonymous"></script>
           <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-          <script>
-            flatpickr("#dateInput", {
-              dateFormat: "Y-m-d", // Example: 2025-05-05
-            });
-          </script>
-          <script src="../js-pages/script.js"></script>
+         
+          <script type="module" src="../../js-pages/form-page-script.js"></script>
 </body>
 </html>

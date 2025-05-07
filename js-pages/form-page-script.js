@@ -1,3 +1,29 @@
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navbarContainer = document.getElementById('navbar-container');
+
+  fetch('/html-pages/navbar.html')  // Correct path depending on your folder structure
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(htmlString) {
+      console.log(htmlString); // Logs fetched HTML
+      navbarContainer.innerHTML = htmlString; // Injects the HTML
+    })
+    .catch(function(err) {
+      console.log('Fetch Error', err);
+    });
+});
+
+//select for states
+const states = ["Dhaka", "Comilla", "Rajshahi"];
+const stateSelect=document.getElementById('state-select');
+states.forEach(state=>{
+  const option=document.createElement('option');
+  option.value=state;
+  option.textContent=state;
+  stateSelect.appendChild(option);
+})
 const showImage = (event) => {
   const imageDiv = document.getElementById("image-div");
   const imageId = document.createElement("img");
@@ -39,6 +65,7 @@ const validateSubjects = () => {
 
   if (selected.length < 2) {
     errorDiv.classList.remove("d-none");
+    console.log(errorDiv)
     checkBoxes.forEach(cb => cb.classList.add("is-invalid"));
     return false;
   } else {
@@ -118,6 +145,7 @@ async function formSubmit() {
     gender: document.querySelector('input[name="gender"]:checked')?.id || "",
     image: imageBase64,
     subjects: selectedSubjects, 
+    state:document.getElementById('state-select').value.trim()
   };
 
   const existingStudents = JSON.parse(localStorage.getItem("student")) || [];
