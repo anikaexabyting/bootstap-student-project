@@ -1,19 +1,19 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-  const navbarContainer = document.getElementById('navbar-container');
+// document.addEventListener("DOMContentLoaded", () => {
+//   const navbarContainer = document.getElementById('navbar-container');
 
-  fetch('/html-pages/navbar.html')  // Correct path depending on your folder structure
-    .then(function(response) {
-      return response.text();
-    })
-    .then(function(htmlString) {
-      console.log(htmlString); // Logs fetched HTML
-      navbarContainer.innerHTML = htmlString; // Injects the HTML
-    })
-    .catch(function(err) {
-      console.log('Fetch Error', err);
-    });
-});
+//   fetch('/html-pages/navbar.html')  // Correct path depending on your folder structure
+//     .then(function(response) {
+//       return response.text();
+//     })
+//     .then(function(htmlString) {
+//       console.log(htmlString); // Logs fetched HTML
+//       navbarContainer.innerHTML = htmlString; // Injects the HTML
+//     })
+//     .catch(function(err) {
+//       console.log('Fetch Error', err);
+//     });
+// });
 
 //select for states
 const states = ["Dhaka", "Comilla", "Rajshahi"];
@@ -26,17 +26,18 @@ states.forEach(state=>{
 })
 const showImage = (event) => {
   const imageDiv = document.getElementById("image-div");
-  const imageId = document.createElement("img");
-  imageId.alt = "Your image";
-  imageId.className = "img-fluid";
-  imageId.id = "image";
-  imageDiv.appendChild(imageId);
+  imageDiv.innerHTML = ""; // Clear previous image if any
 
-  imageId.src = URL.createObjectURL(event.target.files[0]);
-  imageId.onload = function () {
-    URL.revokeObjectURL(imageId.src);
-  };
+  const image = document.createElement("img");
+  image.alt = "Your image";
+  image.className = "img-fluid";
+  image.id = "image";
+  image.src = URL.createObjectURL(event.target.files[0]);
+  image.onload = () => URL.revokeObjectURL(image.src);
+
+  imageDiv.appendChild(image);
 };
+
 
 const imagetoBase64String = (file) => {
   return new Promise((resolve, reject) => {
