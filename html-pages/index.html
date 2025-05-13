@@ -8,36 +8,16 @@
   rel="stylesheet"
   integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
   crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css-pages/index.css">
     <title>Document</title>
 </head>
 <body>
+  
 
-    <div id="navbar-container">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed top-0 w-100 mb-100 z-10">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Student Website</a>
-          <div class="navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="form.html">Add New Student</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      
-    </div>
-
-    
-    <div class="container card-container d-flex flex-wrap" id="card-container">
-        
-    </div>
-
- <!--    modal -->
+    <!-- Modal HTML (unchanged) -->
 <div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -45,7 +25,7 @@
         <h5 class="modal-title" id="studentModalLabel">Student Information</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" id="modal-body-content">
+      <div class="modal-body" id="modal-student">
         <!-- Content will be injected dynamically -->
       </div>
       <div class="modal-footer">
@@ -55,12 +35,140 @@
   </div>
 </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
-          integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1DhO6Uv4lVV2F4GzF6zQ5P3pZ1a0RYa3jHVPpl3KjI1" 
-          crossorigin="anonymous"></script>
-          <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-         
+
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="navbar-container">
+
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Student Website</a>
+    <div class="navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="form.html">Add New Student</a>
+        </li>   <li class="nav-item">
+          <a class="nav-link" href="results.html">Students Result</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <div class="breadcrumb">
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb" id="breadcrumb">
+    <li class="breadcrumb-item"><a href="">Home</a></li>
+    <li class="breadcrumb-item "> <a href="#studentsCardsContainer">Our Students</a></li>
+    <li class="breadcrumb-item"><a href="#faq">FAQ</a></li>
+ 
+  </ol>
+</nav>
+  </div>
+    <div id="carouselExample" class="carousel slide carousel-fade">
+      <div class="carousel-inner">
+    
+        <!-- Slide 1 -->
+        <div class="carousel-item active position-relative">
+          <img src="../images/girl.jpg" class="d-block w-100 carousel-image-slide-1" alt="...">
+          <div class="carousel-overlay"></div>
+          <div class="carousel-caption text-center typewritting-text">
+          
+        
+          </div>
+        </div>
+    
+        <!-- Slide 2 -->
+        <div class="carousel-item position-relative">
+          <div class="row carousel-second-div">
+             <div class="col-md-6 order-2 order-md-1 carousel-second-div-text">
+             <div>
+              <div class="typewritting-text">Modern Classrooms</div>
+             </div>
+                <div>Innovative Learning Environments</div>
+             </div>
+             <div class="col-md-6 order-1 order-md-2 carousel-item-2">
+              <div class="image-gradient-wrapper">
+                <img src="../images/students.jpg" class="carousel-image-slide-2" alt="...">
+              </div>
+             </div>
+          </div>
+        
+        </div>
+    
+      </div>
+    
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="students" id="studentsCardsContainer">
+      <h1 class="text-center">Our students</h1>
+      <div class="container card-container d-flex flex-wrap" id="card-container">
+     
+        
+      </div>
+    </div>
+   
+ <!-- FAQ -->
+<div class="faq" id="faq">
+  <h1 class="text-center">Frequently Asked Questions</h1>
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          What are the school hours?
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          School typically starts at 8:30 AM and ends at 3:00 PM from Monday to Friday. Please refer to the academic calendar for any schedule changes or special events.
+        </div>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          How can parents communicate with teachers?
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          Parents can communicate with teachers through the parent portal, via school email, or by scheduling a meeting through the school office.
+        </div>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          How do I enroll my child?
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          Enrollment can be done online via the school’s admissions page or in person at the administration office. Required documents include a birth certificate, previous academic records, and proof of residence.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS (MUST be loaded before your custom script) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+        
          
           <script src="../../js-pages/home-page-script.js"></script>
+          <script src="../js-pages/navbar-page.js"></script>
+          
 </body>
 </html>

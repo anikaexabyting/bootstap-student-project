@@ -1,20 +1,4 @@
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const navbarContainer = document.getElementById('navbar-container');
-
-//   fetch('/html-pages/navbar.html')  // Correct path depending on your folder structure
-//     .then(function(response) {
-//       return response.text();
-//     })
-//     .then(function(htmlString) {
-//       console.log(htmlString); // Logs fetched HTML
-//       navbarContainer.innerHTML = htmlString; // Injects the HTML
-//     })
-//     .catch(function(err) {
-//       console.log('Fetch Error', err);
-//     });
-// });
-
 //select for states
 const states = ["Dhaka", "Comilla", "Rajshahi"];
 const stateSelect=document.getElementById('state-select');
@@ -66,7 +50,7 @@ const validateSubjects = () => {
 
   if (selected.length < 2) {
     errorDiv.classList.remove("d-none");
-    console.log(errorDiv)
+ 
     checkBoxes.forEach(cb => cb.classList.add("is-invalid"));
     return false;
   } else {
@@ -79,10 +63,10 @@ const validateSubjects = () => {
 (function () {
   "use strict";
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+
   var forms = document.querySelectorAll(".needs-validation");
 
-  // Loop over them and prevent submission
+
   Array.prototype.slice.call(forms).forEach(function (form) {
     form.addEventListener(
       "submit",
@@ -124,7 +108,7 @@ async function formSubmit() {
     .filter((cb) => cb.checked)
     .map((cb) => cb.value);
 
-  console.log("Selected Subjects:", selectedSubjects);
+
 
   const subjectError = document.getElementById("subject-error");
   if (selectedSubjects.length < 2) {
@@ -151,7 +135,6 @@ async function formSubmit() {
 
   const existingStudents = JSON.parse(localStorage.getItem("student")) || [];
   existingStudents.push(studentData);
-  console.log(studentData);
   localStorage.setItem("student", JSON.stringify(existingStudents));
 
   const alert = document.getElementById("alert");
