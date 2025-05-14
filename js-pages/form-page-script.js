@@ -1,13 +1,12 @@
-
 //select for states
 const states = ["Dhaka", "Comilla", "Rajshahi"];
-const stateSelect=document.getElementById('state-select');
-states.forEach(state=>{
-  const option=document.createElement('option');
-  option.value=state;
-  option.textContent=state;
+const stateSelect = document.getElementById("state-select");
+states.forEach((state) => {
+  const option = document.createElement("option");
+  option.value = state;
+  option.textContent = state;
   stateSelect.appendChild(option);
-})
+});
 const showImage = (event) => {
   const imageDiv = document.getElementById("image-div");
   imageDiv.innerHTML = ""; // Clear previous image if any
@@ -22,7 +21,6 @@ const showImage = (event) => {
   imageDiv.appendChild(image);
 };
 
-
 const imagetoBase64String = (file) => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -32,30 +30,30 @@ const imagetoBase64String = (file) => {
   });
 };
 ///check on clicking
-document.querySelectorAll(".subject-checkbox").forEach(cb => {
+document.querySelectorAll(".subject-checkbox").forEach((cb) => {
   cb.addEventListener("change", () => {
-    const selected = Array.from(document.querySelectorAll(".subject-checkbox")).filter(c => c.checked);
+    const selected = Array.from(
+      document.querySelectorAll(".subject-checkbox")
+    ).filter((c) => c.checked);
     const subjectError = document.getElementById("subject-error");
-    if (selected.length<2) {
+    if (selected.length < 2) {
       subjectError.classList.remove("d-none");
-    
-    }
-   else  subjectError.classList.add("d-none");
+    } else subjectError.classList.add("d-none");
   });
 });
 const validateSubjects = () => {
   const checkBoxes = document.querySelectorAll(".subject-checkbox");
-  const selected = Array.from(checkBoxes).filter(cb => cb.checked);
+  const selected = Array.from(checkBoxes).filter((cb) => cb.checked);
   const errorDiv = document.getElementById("subject-error");
 
   if (selected.length < 2) {
     errorDiv.classList.remove("d-none");
- 
-    checkBoxes.forEach(cb => cb.classList.add("is-invalid"));
+
+    checkBoxes.forEach((cb) => cb.classList.add("is-invalid"));
     return false;
   } else {
     errorDiv.classList.add("d-none");
-    checkBoxes.forEach(cb => cb.classList.remove("is-invalid"));
+    checkBoxes.forEach((cb) => cb.classList.remove("is-invalid"));
     return true;
   }
 };
@@ -63,9 +61,7 @@ const validateSubjects = () => {
 (function () {
   "use strict";
 
-
   var forms = document.querySelectorAll(".needs-validation");
-
 
   Array.prototype.slice.call(forms).forEach(function (form) {
     form.addEventListener(
@@ -74,7 +70,7 @@ const validateSubjects = () => {
         event.preventDefault();
         validateSubjects();
         // Check all form fields for validity
-        if (!form.checkValidity()||   !validateSubjects()) {
+        if (!form.checkValidity() || !validateSubjects()) {
           event.stopPropagation(); // Stop further propagation if form is invalid
         }
 
@@ -108,12 +104,10 @@ async function formSubmit() {
     .filter((cb) => cb.checked)
     .map((cb) => cb.value);
 
-
-
   const subjectError = document.getElementById("subject-error");
   if (selectedSubjects.length < 2) {
     subjectError.style.display = "block";
-  
+
     return;
   } else {
     subjectError.style.display = "none";
@@ -129,8 +123,8 @@ async function formSubmit() {
     dateOfBirth: document.getElementById("date-of-birth").value,
     gender: document.querySelector('input[name="gender"]:checked')?.id || "",
     image: imageBase64,
-    subjects: selectedSubjects, 
-    state:document.getElementById('state-select').value.trim()
+    subjects: selectedSubjects,
+    state: document.getElementById("state-select").value.trim(),
   };
 
   const existingStudents = JSON.parse(localStorage.getItem("student")) || [];
@@ -149,4 +143,3 @@ async function formSubmit() {
   const preview = document.getElementById("image");
   if (preview) preview.remove();
 }
-

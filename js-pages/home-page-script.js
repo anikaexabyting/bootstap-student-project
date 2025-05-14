@@ -1,11 +1,8 @@
-
-
 function showStudentDetails(index) {
   const studentsJson = localStorage.getItem("student");
   const studentArray = JSON.parse(studentsJson);
 
   const student = studentArray[index];
-
 
   const modalBody = document.getElementById("modal-student");
   const subjectsHTML =
@@ -103,7 +100,7 @@ function getCards() {
       </div>`;
       container.insertAdjacentHTML("beforeend", cardHTML);
     });
-  }, 3000); 
+  }, 3000);
 }
 
 window.addEventListener("DOMContentLoaded", getCards);
